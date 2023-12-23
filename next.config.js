@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      { hostname: "upload.wikimedia.org" },
 
-module.exports = nextConfig
+      // add any other domains you want to allow herenames you want to allow here
+    ],
+  },
+};
+
+module.exports = nextConfig;

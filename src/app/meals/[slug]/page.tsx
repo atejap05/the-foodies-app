@@ -1,11 +1,16 @@
 import Link from "next/link";
 
-type Props = {};
+type Props = {
+  params: {
+    slug: string;
+  };
+};
 
 const MealsDetails = (props: Props) => {
+  const { slug } = props.params;
   return (
     <>
-      <div>MealsDetails</div>
+      <h1>MealsDetails {slug}</h1>
     </>
   );
 };

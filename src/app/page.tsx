@@ -1,18 +1,52 @@
-import Image from "next/image";
 import Link from "next/link";
+import classes from "./page.module.css";
+import ImageSlideshow from "@/components/Images/ImageSlideshow/ImageSlideshow";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <Link href="/meals">Meals</Link>
-          <Link href="/meals/share">Share</Link>
-          <Link href="/community">Community</Link>b
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-      </div>
-    </main>
+    <>
+      <header className={classes.header}>
+        <section className={classes.slideshow}>
+          <ImageSlideshow />
+        </section>
+        <section>
+          <section className={classes.hero}>
+            <h1>NextLevel Food form NextLevel Foodies</h1>
+            <p>Teste & share food from all over the world.</p>
+          </section>
+          <section className={classes.cta}>
+            <Link href={"/community"}>Join the Community</Link>
+            <Link href={"/meals"}>Explore Meals</Link>
+          </section>
+        </section>
+      </header>
+      <main>
+        <section className={classes.section}>
+          <h2>How it works</h2>
+          <p>
+            NextLevel Food is a platform for foodies to share their favorite
+            recipes with the world. It&apos;s a place to discover new dishes,
+            and to connect with other food lovers.
+          </p>
+          <p>
+            NextLevel Food is a place to discover new dishes, and to connect
+            with other food lovers.
+          </p>
+        </section>
+
+        <section className={classes.section}>
+          <h2>Why NextLevel Food?</h2>
+          <p>
+            NextLevel Food is a platform for foodies to share their favorite
+            recipes with the world. It&apos;s a place to discover new dishes,
+            and to connect with other food lovers.
+          </p>
+          <p>
+            NextLevel Food is a place to discover new dishes, and to connect
+            with other food lovers.
+          </p>
+        </section>
+      </main>
+    </>
   );
 }
