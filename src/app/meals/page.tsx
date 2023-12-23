@@ -1,13 +1,19 @@
+import { Suspense } from "react";
 import classes from "./page.module.css";
 import Link from "next/link";
 import MealsGrid from "@/components/Meals/GridComponent/MealsGrid";
 import { getMeals } from "@/lib/meals";
 
+// TODO: Try to implement an Squelton Loading Component for the MealsGrid
+
+async function Meals() {
+  const meals = await getMeals();
+  return <MealsGrid meals={meals} />;
+}
+
 type Props = {};
 
-const MealsPage = async (props: Props) => {
-  const meals = await getMeals();
-
+const MealsPage = (props: Props) => {
   return (
     <>
       <header className={classes.header}>
@@ -23,7 +29,9 @@ const MealsPage = async (props: Props) => {
         </p>
       </header>
       <main className={classes.main}>
-        <MealsGrid meals={meals} />
+        <Suspense fallback={<p className={classes.loading}>Loading...</p>}>
+          <Meals />
+        </Suspense>
       </main>
     </>
   );
