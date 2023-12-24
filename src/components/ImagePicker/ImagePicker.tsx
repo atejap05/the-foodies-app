@@ -23,13 +23,17 @@ export default function ImagePicker(props: ImagePickerProps) {
 
   const onChangeImageHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+
+    if (!file) {
+      setPreview("");
+      return;
     }
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPreview(reader.result as string);
+    };
+    reader.readAsDataURL(file);
   };
 
   return (
@@ -53,7 +57,11 @@ export default function ImagePicker(props: ImagePickerProps) {
           Pick an Image
         </button>
         <div className={classes.preview}>
-          <Image src={preview} alt="Preview" fill />
+          {preview ? (
+            <Image src={preview} alt="Preview" fill />
+          ) : (
+            <p>No image Picked Yet</p>
+          )}
         </div>
       </div>
     </div>
