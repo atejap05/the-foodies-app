@@ -22,7 +22,7 @@ const MealsDetails = async (props: Props) => {
     <>
       <header className={classes.header}>
         <div className={classes.image}>
-          <Image src={meal.image.name} alt={meal.title} fill />
+          <Image src={meal.image} alt={meal.title} fill />
         </div>
         <div className={classes.headerText}>
           <h1>{meal.title}</h1>

@@ -46,12 +46,7 @@ export async function createMeal(
 
   meal = {
     ...meal,
-    image: {
-      name: `/images/${imageFileName}`,
-      arrayBuffer: function (): Promise<ArrayBuffer> {
-        throw new Error("Function not implemented.");
-      },
-    },
+    image: `/images/${imageFileName}`,
   };
 
   // Check if the meal already exists
@@ -62,6 +57,9 @@ export async function createMeal(
   if (existingMeal) {
     throw new Error("Meal already exists");
   }
+
+  console.log("meal from createMeal", meal);
+
   // insert meal into database
   const { changes } = db
     .prepare(

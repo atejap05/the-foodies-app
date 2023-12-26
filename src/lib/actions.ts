@@ -1,5 +1,6 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { createMeal } from "./meals";
 import type { TMealItemProps } from "@/shared/types/@meals";
 
@@ -15,5 +16,9 @@ export const onShareMeal = async (formData: FormData) => {
     creator_email: formData.get("email") || "",
   };
 
+  console.log("meal", meal);
+
   await createMeal(meal);
+
+  redirect("/meals");
 };
