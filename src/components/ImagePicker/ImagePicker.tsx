@@ -14,7 +14,6 @@ export default function ImagePicker(props: ImagePickerProps) {
   const { label, name } = props;
 
   const [preview, setPreview] = useState<string | StaticImport>("");
-
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleBtnClick = () => {

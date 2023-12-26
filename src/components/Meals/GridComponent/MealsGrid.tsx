@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./meals-grid.module.css";
-import MealItem, { type TMealItemProps } from "../MealItem/MealItem";
+import MealItem from "../MealItem/MealItem";
+import { TMealItemProps } from "@/shared/types/@meals";
 
 type TMealsGridProps = {
   meals: TMealItemProps[];
